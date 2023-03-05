@@ -28,17 +28,6 @@ export function addTask(arr, newTask, prior, idNow){
     }
 }
 
-//старая функция только для работы с массивом с поиском задачи по имени
-export function deleteTask(arr, delTask){
-    //проверить, есть ли задача для удаления
-    if (!isValidTask(arr, delTask)){
-        console.log('Такой задачи не существует!');
-    } else { // удалить задачу
-        let delTaskConsole = arr.splice(arr.findIndex(element => element.name == delTask), 1);
-        console.log(`Задача "${delTaskConsole[0].name}" успешно удалена`);
-    }
-}
-
 //возвращает МАССИВ ОБЪЕКТОВ ЗАДАЧ С НУЖНЫМ ПРИОРИТЕОТОМ, УНИКЛЬНЫМ ID, статусом и остальными данными, которые не будем использовать
 export function getTodoPriorityId(arr, priority) {
     const arrPriorObj = arr.filter(element => element.priority === priority);
