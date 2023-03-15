@@ -16,14 +16,39 @@
       <div class="add-task">
         <!-- взять из погоды -->
         <form class="add-task-form" action="" id="add-task-form-input">
-          <input placeholder="Добавить важных дел" type="text" name = "highTask">
+          <input class = "input-high" placeholder="Добавить важных дел" type="text" name = "highTask">
+          <button type="submit" class="btn btn-add btn-high" id="add-task-high"><img class = "icon-add-task" src="./img/add-icon.svg" alt="add-task"></button>
         </form>
-        <button type="submit" class="btn btn-add" id="add-task-high"><img class = "icon-add-task" src="./img/add-icon.svg" alt="add-task"></button>
+       
         
       </div>
       
       <ul id="task-high-list">
+
+        <!-- конструкция для js
+        <li>
+          <div class="input-task">
+            <div class="radio-btn">
+              <input class="task-checkbox-input" type="checkbox">
+            </div>
+            <div class="input-task-text">Поле по умолчанию</div>
+            <button class="btn">
+              <img class = "icon-del-task" id="del-task-high" src="./img/close-icon.svg" alt="close task">
+            </button>
+          </div>
+        </li> -->
         <!-- ТУТ БУДУТ ДОБАВЛЯТЬСЯ НОВЫЕ ЗАДАЧИ ИЗ МАССИВА -->
+        <!-- <li>
+          <div class="input-task">
+            <div class="radio-btn">
+              <input type="radio" name="" id="">
+            </div>
+            <div class="input-task-text">
+              Посмотреть новости
+            </div>   
+            <button class="btn"><img class = "icon-del-task" id="del-task-high" src="./img/close-icon.svg" alt="close task"></button>
+          </div> 
+        </li> -->
         
 
       </ul>
@@ -31,12 +56,28 @@
     <div class="priority-low">
       <h2>LOW</h2>
       <div class="add-task">
-        <!-- взять из погоды -->
-        <input placeholder="Добавить важных дел" type="text">
-        <button class="btn btn-add" id="add-task-low"><img class = "icon-add-task" src="./img/add-icon.svg" alt="add-task"></button>
+        <!-- <form class="add-task-form" action="" id="add-task-form-input"></form>
+          <input class = "input-low" placeholder="Добавить важных дел" type="text">
+          <button class="btn btn-add btn-low" id="add-task-low"><img class = "icon-add-task" src="./img/add-icon.svg" alt="add-task"></button>
+        </form> -->
+        <form class="add-task-form" action="" id="add-task-form-input">
+          <input class = "input-low" placeholder="Добавить важных дел" type="text" name = "lowTask">
+          <button type="submit" class="btn btn-add btn-low" id="add-task-high"><img class = "icon-add-task" src="./img/add-icon.svg" alt="add-task"></button>
+        </form>
       </div>
       <ul id="task-low-list">
         <!-- ТУТ БУДУТ ДОБАВЛЯТЬСЯ НОВЫЕ ЗАДАЧИ ИЗ МАССИВА -->
+        <!-- <li>
+          <div class="input-task">
+            <div class="radio-btn">
+              <input type="radio" name="" id="">
+            </div>
+            <div class="input-task-text">
+              Посмотреть ютубчик
+            </div>   
+            <button class="btn"><img class = "icon-del-task" src="./img/close-icon.svg" alt="close task"></button>
+          </div> 
+        </li> -->
       </ul>
     </div>
 
