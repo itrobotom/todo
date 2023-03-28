@@ -34,6 +34,9 @@ section {
     height: 688px;
     border: 1px solid black;
     background-color: white;
+    /* если в контейнер не поместятся элементы, то появится прокрутка */
+    /* ПОЕХАЛИ КНОПКИ, ВИДИМО Т.К. АБСОЛЮТНАЯ ПОЗИЦИЯ */
+    /* Overflow-y: auto; */
 }
 
 .radio-btn{
@@ -81,7 +84,7 @@ section {
     cursor: pointer;
 }
 .btn-add {
-    margin-left: 422px;
+    margin-left: -40px;
 }
 
 .btn:hover {
@@ -95,9 +98,14 @@ section {
     margin-bottom: 8px;
 }
 
+.priority-low ul li {
+    margin-bottom: 8px;
+}
+
 ul{
     padding: 0;
     margin: 0;
+    
 }
 
 li {

@@ -44,7 +44,7 @@ function addTask(e) {
   document.querySelector(".input-high").value = "";
   document.querySelector(".input-low").value = "";
   
-  render(massModule.todoArr); 
+  render(); 
 
   countId += 1; //для добавления уникального id задачам
 }
@@ -52,8 +52,7 @@ function addTask(e) {
 //функция для обновления задач на странице 
 //ДОБАВИТЬ АРГУМЕНТ СТАТУСА, ДЛЯ КАКОГО СТАТУСА МЫ ВЫЗЫВАЕМ ЭТУ ФУНКЦИЮ
 //ИЛИ ГДЕ ЛУЧШЕ УЧИТЫВАТЬ ДОБАВЛЕНИ
-function render(arrTask) {
-  
+function render() {
   //ОБЕРНУТЬ В ФУНКЦИЮ ОТЧИСТКУ DOM ДЕРЕВА
   //сначала удаляет все задачи из списка в DOM дереве, для начала найдем списки
   const listHigh = document.getElementById('task-high-list');
@@ -79,14 +78,11 @@ function render(arrTask) {
       //добавим id из массива с задачами нашей таске в DOM
       newTemplate.setAttribute("id", elem.id);
       //установка цвета по статусу
-      const getElemForChangeColor = newTemplate.querySelector(".input-task-text");
-      //****ПРОВЕРИТЬ СТАТУС ТАСКИ ИЗ МАССИВА
-      
       //если статус DONE, поставить цвет элементу зеленый
       if(elem.status === massModule.STATUSES.IN_PROGRESS){
-        getElemForChangeColor.style.background = 'green';
+        newTemplate.style.background = 'green';
       } else { //иначе красный
-        getElemForChangeColor.style.background = 'blue';
+        newTemplate.style.background = 'blue';
       }
     } 
     else if(elem.priority === massModule.PRIORIRTIES.LOW){
@@ -96,13 +92,12 @@ function render(arrTask) {
       //добавим id из массива с задачами нашей таске в DOM
       newTemplate.setAttribute("id", elem.id);
       //установка цвета по статусу
-      const getElemForChangeColor = newTemplate.querySelector(".input-task-text");
-      //****ПРОВЕРИТЬ СТАТУС ТАСКИ ИЗ МАССИВА
+      //const getElemForChangeColor = newTemplate.querySelector(".input-task-text");
       //если статус DONE, поставить цвет элементу зеленый
       if(elem.status === massModule.STATUSES.IN_PROGRESS){
-        getElemForChangeColor.style.background = 'green';
+        newTemplate.style.background = 'green';
       } else { //иначе красный
-        getElemForChangeColor.style.background = 'red';
+        newTemplate.style.background = 'blue';
       }
     }
 
@@ -129,7 +124,7 @@ function render(arrTask) {
 function deleteTaskFromArr(arr, idTask){
   //проверять, есть ли такая задача не надо, т.к. уже нашли ее id, а если он есть, значит есть и задача для удаления
   let delTaskConsole = arr.splice(arr.findIndex(element => element.id == idTask), 1);
-  render(massModule.todoArr);  
+  render();  
 }
 
 function changeStatus(arr, idTask, stat) {
@@ -142,7 +137,7 @@ function changeStatus(arr, idTask, stat) {
       }
     }
   });
-  render(massModule.todoArr);  
+  render();  
 }
 
 /*
