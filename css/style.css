@@ -94,22 +94,15 @@ section {
     transform: scale(1);
 }
 
-.priority-high ul li {
-    margin-bottom: 8px;
-}
-
-.priority-low ul li {
-    margin-bottom: 8px;
-}
-
 ul{
     padding: 0;
     margin: 0;
-    
 }
 
 li {
     list-style: none;
+    margin-bottom: 8px;
+    border-radius: 5px;
 }
 
 .input-task {
