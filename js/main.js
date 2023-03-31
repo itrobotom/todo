@@ -25,14 +25,15 @@ function addTask(e) {
     if(massModule.todoArr.find(element => element.name === inputHigh)){
       alert('Такая задача уже есть!');
     } else {
-      const newTaskObj = {name: inputHigh, status: massModule.STATUSES.IN_PROGRESS, priority: massModule.PRIORIRTIES.HIGH, id: countId};
+      const newTaskObj = new CreateTask(inputHigh, massModule.PRIORIRTIES.HIGH, countId);
+      console.log(newTaskObj);
       massModule.todoArr.push(newTaskObj);
       console.log(massModule.todoArr);
     }
 
   } else if (inputLow){
     console.log('Добавляем новую задачу LOW в массив!');
-    const newTaskObj = {name: inputLow, status: massModule.STATUSES.IN_PROGRESS, priority: massModule.PRIORIRTIES.LOW, id: countId};
+    const newTaskObj = new CreateTask(inputLow, massModule.PRIORIRTIES.LOW, countId);
     massModule.todoArr.push(newTaskObj);
     console.log(massModule.todoArr);
     //const listLow = document.getElementById("task-low-list");
@@ -47,6 +48,15 @@ function addTask(e) {
   render(); 
 
   countId += 1; //для добавления уникального id задачам
+}
+
+//функция конструктор создания новой задачи
+//делает короче всего на одну запись status (она внутри функции задана), тем не менее это снизит вероятность ошибки при написании кода и это только пример
+function CreateTask(name, priority, idTask) {
+  this.name = name;
+  this.status = massModule.STATUSES.IN_PROGRESS;
+  this.priority = priority;
+  this.id = idTask;
 }
 
 //функция для обновления задач на странице 
