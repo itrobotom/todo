@@ -1,4 +1,7 @@
-export {getFullTime, convertTimeStartFinish, getLeadTime};
+import {STATUSES, PRIORIRTIES} from './consts.js';
+import {render} from './dom.js';
+
+export {getFullTime, convertTimeStartFinish, changeStatusSetTime};
 
 function getFullTime() {
     const dateTime = new Date();
@@ -45,4 +48,21 @@ function getLeadTime(timeStart, timeFinish) {
       }
       return `${hours}:${minutes}, ${days} days`
     }
+}
+
+function changeStatusSetTime(arr, idTask, stat) {
+  arr.findIndex(function(element) {
+    if(element.id === idTask) {
+      if(stat === STATUSES.IN_PROGRESS) {
+        element.status = STATUSES.DONE;
+        element.timeFinish = getFullTime(); //записываем в element.timeFinish время, вызывая функцию получения времени завершения задачи
+        element.timeLead = getLeadTime(element.timeStart, element.timeFinish); //записываем в element.timeLead, вызывая функцию расчета времени выполенения задачи
+      } else {
+        element.status = STATUSES.IN_PROGRESS;
+        element.timeFinish = 'inProgress'; 
+        element.timeLead = 'inProgress';
+      }
+    }
+  });
+  render();  
 }
