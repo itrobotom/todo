@@ -79,6 +79,8 @@ function render() {
     //!!!сделать вызывать сразу функцию с приоритетом, тогда не прийдется проверять if
     if(elem.priority === PRIORIRTIES.HIGH){
       createElement('taskHighList', elem);
+      
+      
     } 
     else if(elem.priority === PRIORIRTIES.LOW){
       createElement('taskLowList', elem);
@@ -112,7 +114,6 @@ function changeStatusSetTime(arr, idTask, stat) {
 
 function createElement(prioryty, elem) { //приоритет и объект с задачей
   let parent = document.querySelector(`#${prioryty}`); //в зависимости от приоритета найдем нужный родитель, куда вставим задачу
-  console.log(parent);
   const newLi = document.createElement('li');
   newLi.setAttribute("id", elem.id); //установим элементу списка свой уникальный id
   parent.appendChild(newLi);
@@ -127,7 +128,9 @@ function createElement(prioryty, elem) { //приоритет и объект с
   //*
   const newInputRadioBtn = document.createElement('input');
   newInputRadioBtn.className = 'task-checkbox-input';
-  newInputRadioBtn.type = 'checkbox'; //правильно или нет??? хз 
+  newInputRadioBtn.type = 'checkbox';
+  //установик флажок у задачи согласно статусу
+  elem.status === STATUSES.IN_PROGRESS ? newInputRadioBtn.checked = false : newInputRadioBtn.checked = true;
   newDivRadioBtn.appendChild(newInputRadioBtn);
 
   //создаем и наполняем большой узел с содержанием задачи и временем
@@ -204,9 +207,10 @@ function createElement(prioryty, elem) { //приоритет и объект с
   
   //!!!!!!!
   //напсать функцию, которая устанваливает цвет задаче (передаем аргумент status) setColorTask()
-  if (elem.status === STATUSES.IN_PROGRESS){
+  //лучше с классом рабоать? то есть менять класс (оба будут в css), а не отдельно свойство писать
+  if (elem.status === STATUSES.IN_PROGRESS){ //зеленый
     newLi.style.background = 'rgba(0, 255, 0, 0.3)';
-  } else { //иначе красный
+  } else { //иначе голубой - готов
     newLi.style.background = 'rgba(0, 0, 255, 0.3)';
   }
 }
